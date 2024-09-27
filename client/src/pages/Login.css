@@ -1,0 +1,61 @@
+/* Login.css */
+.login-container {
+    max-width: 400px; /* Maximum width of the container */
+    margin: auto; /* Centering the container */
+    padding: 20px; /* Padding for the container */
+    border: 2px solid #ccc; /* Default border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: relative; /* Position relative for glow effect */
+    background-color: white; /* White background for contrast */
+}
+
+.login-container h2 {
+    text-align: center; /* Center the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.login-container form {
+    display: flex; /* Flexbox layout for form */
+    flex-direction: column; /* Stacking elements vertically */
+}
+
+.login-container label {
+    margin-bottom: 5px; /* Space below labels */
+}
+
+.login-container input {
+    margin-bottom: 15px; /* Space below inputs */
+    padding: 8px; /* Padding for input fields */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners for inputs */
+    transition: border 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.login-container input:focus {
+    border: 2px solid #007bff; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Soft blue glow effect */
+    outline: none; /* Remove default outline */
+}
+
+.login-container button {
+    padding: 10px; /* Padding for button */
+    background-color: #4CAF50; /* Green background for the button */
+    color: white; /* White text */
+    border: 1px solid transparent; /* No border, transparent for clean look */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+.login-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    border: 1px solid #007bff; /* Highlight border on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}

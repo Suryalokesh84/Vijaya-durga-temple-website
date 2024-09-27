@@ -1,0 +1,75 @@
+/* About.css */
+/* About.css */
+.about-container {
+  padding: 30px; /* Padding inside the container */
+  background: linear-gradient(to bottom right, #6a11cb, #2575fc); /* Gradient background */
+  border-radius: 20px; /* More pronounced rounded corners */
+  max-width: 900px; /* Increased width for spaciousness */
+  margin: 40px auto; /* Center the container */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+  animation: fadeIn 1s ease; /* Fade-in animation */
+  border: 2px solid #fff; /* Optional: White border for visibility */
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 30px 20px; /* Increased padding on left and right for better visibility */
+    margin: 20px 10px; /* Reduced margin for mobile devices */
+    border-radius: 15px; /* Slightly smaller border radius for a cleaner look */
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 50;
+  }
+  to {
+    opacity: 15;
+  }
+}
+
+.about-title {
+  font-size: 3rem;
+  text-align: center;
+  color: #fff; /* White color for the main title */
+  font-family:  sans-serif; /* Elegant cursive font for the title */
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* Strong text shadow for depth */
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #ffeb3b; /* Bright yellow for section titles */
+  font-family: 'Arial Black', sans-serif; /* Bold sans-serif for section titles */
+  margin-top: 25px; /* Space above section titles */
+  text-transform: uppercase; /* Uppercase for emphasis */
+  letter-spacing: 1.5px; /* Increased spacing between letters */
+  transition: color 0.3s ease; /* Color transition on hover */
+}
+
+.section-title:hover {
+  color: #ff9800; /* Color change on hover */
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.8; /* Increased line height for readability */
+  color: #f1f1f1; /* Light grey for the paragraph text */
+  font-family: 'Verdana', sans-serif; /* Clean sans-serif font for paragraphs */
+  margin-bottom: 20px; /* Space between paragraphs */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background for text */
+  padding: 15px; /* Padding inside paragraphs */
+  border-radius: 10px; /* Rounded corners for paragraphs */
+  backdrop-filter: blur(5px); /* Blur effect for the background */
+  transition: transform 0.3s ease; /* Animation effect for paragraphs */
+}
+
+.about-content p:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.about-content p::before {
+  content: "✨"; /* Decorative icon before paragraphs */
+  margin-right: 10px; /* Space between icon and text */
+}

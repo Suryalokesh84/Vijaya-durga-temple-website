@@ -1,0 +1,37 @@
+.sec1 {
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+    width: 100%;
+    overflow-x: hidden; /* Hide the scrollbar */
+    position: relative;
+    z-index: 1; /* Set a lower z-index for images */
+}
+
+
+.image-container {
+    display: flex;
+    width: max-content; /* Ensures the container can hold multiple sets of images */
+    animation: scroll-left 20s linear infinite; /* Infinite scroll animation */
+}
+
+.image-container img {
+    height: 100%;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0); /* Start at initial position */
+    }
+    100% {
+        transform: translateX(-50%); /* Move left by half the container width */
+    }
+}
+
+/* Adjust your navbar styles as needed */
+.navbar {
+    position: relative; /* Ensure it’s positioned relative to parent */
+    z-index: 2; /* Set a higher z-index for navbar */
+}

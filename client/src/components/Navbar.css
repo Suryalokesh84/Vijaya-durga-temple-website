@@ -1,0 +1,102 @@
+/* General Navbar Styles */
+body {
+  margin: 0;
+}
+
+.navbar {
+  background: #333;
+  color: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.navbar h1 {
+  font-size: 2rem; /* Increased font size for the title */
+  padding-left: 10px;
+  font-family:  sans-serif; /* Different font style for the title */
+  color: #fa210d; /* Attractive gold color */
+  text-shadow: 1px 1px 2px #000; /* Text shadow for a 3D effect */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem; /* Increased gap for better spacing */
+  align-items: center;
+  padding-right: 1rem;
+  margin: 0;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Arial', sans-serif; /* Different font style for the links */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+  color: #FFD700; /* Change color on hover for links */
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background-color: white;
+  transition: 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    flex-direction: column;
+    background: #333333;
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 8px;
+    margin: 0;
+  }
+
+  .navbar.active ul {
+    display: flex;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+}
