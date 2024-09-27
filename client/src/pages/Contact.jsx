@@ -1,5 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react';
-import './Contact.css'; // Make sure to import the CSS file
+import './contact.css'; // Make sure to import the CSS file
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xldrqebv"); // Replace with your actual Formspree ID
