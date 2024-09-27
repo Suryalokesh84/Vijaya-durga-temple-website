@@ -13,7 +13,7 @@ const DonationForm = () => {
   useEffect(() => {
     const fetchDonations = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/donations');
+        const response = await axios.get('https://vijaya-durga-temple-website-org.onrender.com');
         setDonations(response.data);
       } catch (error) {
         console.error('Error fetching donations:', error);
@@ -31,14 +31,14 @@ const DonationForm = () => {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/donations', donationData);
+      await axios.post('https://vijaya-durga-temple-website-org.onrender.com', donationData);
       alert('Donation submitted successfully');
       // Clear the form fields after submission
       setName('');
       setAmount('');
       setImage('');
       // Refresh donations
-      const response = await axios.get('http://localhost:5000/api/donations');
+      const response = await axios.get('https://vijaya-durga-temple-website-org.onrender.com');
       setDonations(response.data);
     } catch (error) {
       console.error('Error submitting donation:', error);
@@ -56,11 +56,11 @@ const DonationForm = () => {
     // Get the donation to delete by its position (serial number)
     const donationToDelete = donations[serial - 1]; // Array is zero-indexed
     try {
-      await axios.delete(`http://localhost:5000/api/donations/${donationToDelete._id}`);
+      await axios.delete(`https://vijaya-durga-temple-website-org.onrender.com${donationToDelete._id}`);
       alert(`Donation with Serial ${serial} deleted successfully`);
       setDeleteSerial(''); // Clear the delete serial field
       // Fetch the updated donations list after deletion
-      const response = await axios.get('http://localhost:5000/api/donations');
+      const response = await axios.get('https://vijaya-durga-temple-website-org.onrender.com');
       setDonations(response.data);
     } catch (error) {
       console.error('Error deleting donation:', error);
