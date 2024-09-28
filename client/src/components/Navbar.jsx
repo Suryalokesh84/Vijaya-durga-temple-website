@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav ref={menuRef} className={`navbar ${isOpen ? 'active' : ''}`}>
-      <h1>Vijaya Durga Temple</h1>
+      <h1>శ్రీ విజయ దుర్గ దేవాలయం</h1>
       <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
         <span></span>
         <span></span>

@@ -4,38 +4,32 @@ import './About.css';
 const About = () => {
   return (
     <div className="about-container">
-      <h1 className="about-title">The Story Of Durga Matha</h1>
+      <h1 className="about-title">దుర్గామాత కథ</h1>
       
       <div className="about-content">
-        <h2 className="section-title">The Divine Vision</h2>
+        <h2 className="section-title">దివ్య దృష్టి</h2>
         <p>
-          Once upon a time, there lived a person named Ganja Srinivas. In 1994, Goddess Durga used to come to his dreams daily. 
-          Due to these divine visions, he arranged a very small hut with a picture of Goddess Durgadevi. 
+        ఒకప్పుడు గంజా  శ్రీనివాస్ అనే వ్యక్తి ఉండేవాడు. 1994లో దుర్గాదేవి రోజూ ఆయన కలలోకి వచ్చేది. ఈ దివ్య దర్శనాల వల్ల దుర్గాదేవి చిత్రపటం ఉన్న అతి చిన్న కుటీరాన్ని ఏర్పాటు చేశాడు.
         </p>
 
-        <h2 className="section-title">The Cyclone</h2>
+        <h2 className="section-title">ది సైక్లోన్</h2>
         <p>
-          In 1996, the hut was destroyed by a cyclone. After this incident, the villagers didn’t pay much attention. 
-          But once again, Goddess Durga came into Ganja Srinivas’s dream. The villagers then decided to rebuild the hut, 
-          this time with palm leaves, despite facing numerous difficulties.
+        1996లో తుఫాను కారణంగా గుడిసె ధ్వంసమైంది. ఈ సంఘటన తర్వాత గ్రామస్తులు పెద్దగా పట్టించుకోలేదు. అయితే మరోసారి గంజ శ్రీనివాస్ కలలోకి దుర్గాదేవి వచ్చింది. గ్రామస్తులు అనేక ఇబ్బందులు ఎదుర్కొన్నప్పటికీ, ఈసారి తాటి ఆకులతో గుడిసెను పునర్నిర్మించాలని నిర్ణయించుకున్నారు.
         </p>
 
-        <h2 className="section-title">Building a Permanent Temple</h2>
+        <h2 className="section-title">శాశ్వత ఆలయాన్ని నిర్మించడం</h2>
         <p>
-          In 2003, the elders of the village planned to build a permanent temple. This plan began with the first donation from Mr. Nimmakayala Jaggayya Naidu Garu. 
-          With further contributions from the villagers, the temple was finally constructed.
+        2003లో గ్రామ పెద్దలు శాశ్వతంగా ఆలయాన్ని నిర్మించేందుకు ప్రణాళిక రూపొందించారు. ఈ ప్రణాళిక శ్రీ నిమ్మకాయల జగ్గయ్య నాయుడు గారి మొదటి విరాళంతో ప్రారంభమైంది. గ్రామస్థుల సహకారంతో చివరకు ఆలయం నిర్మించబడింది.
         </p>
 
-        <h2 className="section-title">Establishing the Idol</h2>
+        <h2 className="section-title">విగ్రహాన్ని స్థాపించడం</h2>
         <p>
-          On October 23, 2004, the idol was established by the couple Mr. Guttula Chinna and Miss Kameswari. Since then, October 23rd is celebrated as a festival every year. 
-          Over time, the celebrations have expanded, with events like Samii Pooja, Eekaha Bajana, Deepalankarana, Teen Maar Drums, and DJ Lights & Sounds.
+        అక్టోబరు 23, 2004న ఈ విగ్రహాన్ని శ్రీ గుత్తుల చిన్నా మరియు మిస్ కామేశ్వరి దంపతులు స్థాపించారు. అప్పటి నుండి, ప్రతి సంవత్సరం అక్టోబర్ 23 వ తేదీని పండుగగా జరుపుకుంటారు. కాలక్రమేణా, సమీ పూజ, ఈకహ బజన, దీపాలంకరణ, తీన్ మార్ డ్రమ్స్ మరియు DJ లైట్స్ & సౌండ్స్ వంటి కార్యక్రమాలతో వేడుకలు విస్తరించాయి.
         </p>
 
-        <h2 className="section-title">The Dussehra Celebration</h2>
+        <h2 className="section-title">దసరా వేడుక</h2>
         <p>
-          Every year during Dussehra, the village gathers to celebrate the temple’s festivals. Thanks to the villagers belief in the power of Sri Vijaya Durga Amma Vari Mahathyam 
-          and their generous donations, the festivities continue to reach new heights.
+        ప్రతి సంవత్సరం దసరా సందర్భంగా గ్రామంలోని ఆలయ ఉత్సవాలు జరుపుకుంటారు. శ్రీ విజయ దుర్గ అమ్మ వారి మహత్యం యొక్క శక్తిపై గ్రామస్తుల విశ్వాసం మరియు వారి ఉదార విరాళాల కారణంగా, ఉత్సవాలు కొత్త ఎత్తులకు చేరుకుంటాయి.
         </p>
       </div>
     </div>
