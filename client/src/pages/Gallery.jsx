@@ -1,28 +1,24 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import './Gallery.css';  // Make sure to add or update CSS styles
+import { useState } from 'react';
+import './Gallery.css';  // Ensure your CSS is applied
 
 const Gallery = () => {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState([
+    // Add your initial image links manually here as an array of objects
+    { url: 'https://i.imgur.com/cqp2uwB.jpeg', title: 'Image 1' },
+    { url: 'https://i.imgur.com/WGOtVOK.jpeg', title: 'Image 3' },
+    { url: 'https://i.imgur.com/hOPF0mw.jpeg', title: 'Image 3' },
+    { url: 'https://i.imgur.com/k3baABH.jpg', title: 'Image 2' },
+    { url: 'https://i.imgur.com/9aaohfE.jpeg', title: 'Image 3' },
+    { url: 'https://i.imgur.com/zvWb0Ob.jpeg', title: 'Image 3' },
+    { url: 'https://i.imgur.com/YCrX3Jy.jpeg', title: 'Image 3' },
+    { url: 'https://i.imgur.com/eMAsbLa.jpeg', title: 'Image 3' },
+    { url: 'https://i.imgur.com/mg1DN80.jpeg', title: 'Image 3' },
+  ]);
   const [currentImage, setCurrentImage] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [newImageUrl, setNewImageUrl] = useState('');
   const [newImageTitle, setNewImageTitle] = useState('');
   const [showForm, setShowForm] = useState(false);
-
-  // Fetch images from the backend
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/images');
-        setImages(response.data); // Set the fetched images in the state
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
-  }, []);
 
   // Open modal and display clicked image
   const openModal = (index) => {
@@ -46,41 +42,24 @@ const Gallery = () => {
   };
 
   // Download the image using Blob to prevent redirection
-  const downloadImage = async (url, title) => {
-    try {
-      const response = await axios({
-        url, // Fetch image as blob
-        method: 'GET',
-        responseType: 'blob',
-      });
-
-      const blob = new Blob([response.data], { type: response.data.type });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.setAttribute('download', title); // Image will download with the title
-      document.body.appendChild(link);
-      link.click();
-      link.remove(); // Clean up the element
-    } catch (error) {
-      console.error('Error downloading the image', error);
-    }
+  const downloadImage = (url, title) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', title); // Image will download with the title
+    document.body.appendChild(link);
+    link.click();
+    link.remove(); // Clean up the element
   };
 
-  // Add a new image (POST request to backend)
-  const addImage = async (e) => {
+  // Add a new image to the state
+  const addImage = (e) => {
     e.preventDefault();
     if (newImageUrl && newImageTitle) {
       const newImage = { url: newImageUrl, title: newImageTitle };
-
-      try {
-        const response = await axios.post('http://localhost:5000/api/images', newImage);
-        setImages([...images, response.data]); // Update the state with the new image
-        setNewImageUrl('');                    // Clear the form fields
-        setNewImageTitle('');
-        setShowForm(false);                    // Hide the form
-      } catch (error) {
-        console.error("Error uploading image:", error);
-      }
+      setImages([...images, newImage]); // Update the state with the new image
+      setNewImageUrl('');  // Clear the form fields
+      setNewImageTitle('');
+      setShowForm(false);  // Hide the form
     }
   };
 
@@ -96,7 +75,7 @@ const Gallery = () => {
         <div className="image-grid">
           {images.map((image, index) => (
             <img 
-              key={image._id} 
+              key={index} 
               src={image.url} 
               alt={image.title} 
               className="gallery-image" 
