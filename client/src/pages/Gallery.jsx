@@ -14,7 +14,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('https://vijaya-durga-temple-website.onrender.com/api/images');
+        const response = await axios.get('http://localhost:5000/api/images');
         setImages(response.data); // Set the fetched images in the state
       } catch (error) {
         console.error("Error fetching images:", error);
@@ -73,7 +73,7 @@ const Gallery = () => {
       const newImage = { url: newImageUrl, title: newImageTitle };
 
       try {
-        const response = await axios.post('https://vijaya-durga-temple-website.onrender.com/api/images', newImage);
+        const response = await axios.post('http://localhost:5000/api/images', newImage);
         setImages([...images, response.data]); // Update the state with the new image
         setNewImageUrl('');                    // Clear the form fields
         setNewImageTitle('');
