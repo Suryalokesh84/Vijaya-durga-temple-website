@@ -8,11 +8,11 @@
     z-index: 1; /* Set a lower z-index for images */
 }
 
-
 .image-container {
     display: flex;
     width: max-content; /* Ensures the container can hold multiple sets of images */
-    animation: scroll-left 20s linear infinite; /* Infinite scroll animation */
+    animation: scroll-left 90s linear infinite; /* Slower and smoother infinite scroll */
+    will-change: transform; /* Hint for smoother performance */
 }
 
 .image-container img {
@@ -23,10 +23,10 @@
 
 @keyframes scroll-left {
     0% {
-        transform: translateX(0); /* Start at initial position */
+        transform: translate3d(0, 0, 0); /* Start at initial position */
     }
     100% {
-        transform: translateX(-50%); /* Move left by half the container width */
+        transform: translate3d(-50%, 0, 0); /* Move left by half the container width */
     }
 }
 
