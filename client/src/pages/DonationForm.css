@@ -107,6 +107,7 @@ table img {
 }
 
 /* Media query for smaller screens */
+/* issue for things just for fun */
 @media (max-width: 600px) {
   .donation-form {
     padding: 15px;

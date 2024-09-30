@@ -131,3 +131,8 @@
     height: auto;
   }
 }
+
+.btn{
+  color: rgb(12, 29, 29);
+  background-color:blueviolet;
+}
