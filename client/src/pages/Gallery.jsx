@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Gallery.css';  // Ensure your CSS is applied
 
 const Gallery = () => {
-  const [images, setImages] = useState([
+  const [images] = useState([
     { url: 'https://i.imgur.com/cqp2uwB.jpeg', title: 'Image 1' },
     { url: 'https://i.imgur.com/WGOtVOK.jpeg', title: 'Image 2' },
     { url: 'https://i.imgur.com/hOPF0mw.jpeg', title: 'Image 3' },
@@ -16,9 +16,6 @@ const Gallery = () => {
   ]);
   const [currentImage, setCurrentImage] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [newImageUrl, setNewImageUrl] = useState('');
-  const [newImageTitle, setNewImageTitle] = useState('');
-  const [showForm, setShowForm] = useState(false);
 
   // Open modal and display clicked image
   const openModal = (index) => {
@@ -41,8 +38,8 @@ const Gallery = () => {
     setCurrentImage((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
-   // Download the image using Blob to prevent redirection
-   const downloadImage = async (url, title) => {
+  // Download the image using Blob to prevent redirection
+  const downloadImage = async (url, title) => {
     try {
       const response = await axios({
         url, // Fetch image as blob
@@ -60,21 +57,6 @@ const Gallery = () => {
     } catch (error) {
       console.error('Error downloading the image', error);
     }
-  };
-  // Add a new image to the state
-  const addImage = (e) => {
-    e.preventDefault();
-    if (newImageUrl && newImageTitle) {
-      const newImage = { url: newImageUrl, title: newImageTitle };
-      setImages([...images, newImage]); // Update the state with the new image
-      setNewImageUrl('');  // Clear the form fields
-      setNewImageTitle('');
-      setShowForm(false);  // Hide the form
-    }
-  };
-
-  const toggleForm = () => {
-    setShowForm(!showForm);
   };
 
   return (
@@ -110,32 +92,6 @@ const Gallery = () => {
               <button onClick={nextImage}>Next</button>
             </div>
           </div>
-        )}
-      </div>
-
-      <div className="button-container">
-        <button className="toggle-form-button" onClick={toggleForm}>
-          {showForm ? 'Hide Form' : 'Add New Image'}
-        </button>
-
-        {showForm && (
-          <form onSubmit={addImage} className="add-image-form">
-            <input
-              type="text"
-              value={newImageUrl}
-              onChange={(e) => setNewImageUrl(e.target.value)}
-              placeholder="Enter image URL"
-              required
-            />
-            <input
-              type="text"
-              value={newImageTitle}
-              onChange={(e) => setNewImageTitle(e.target.value)}
-              placeholder="Enter image title"
-              required
-            />
-            <button type="submit" className="submit-button">Add Image</button>
-          </form>
         )}
       </div>
     </div>

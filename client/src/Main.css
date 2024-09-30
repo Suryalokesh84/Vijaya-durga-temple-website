@@ -1,0 +1,35 @@
+/* Main.css */
+.section {
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+  }
+  
+  .sec1, .sec2, .sec3, .sec4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sec1 {
+    background-color: #fff;
+  }
+  
+  .sec2 {
+    background-color: #fafafa;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  

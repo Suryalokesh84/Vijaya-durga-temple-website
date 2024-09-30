@@ -29,6 +29,7 @@ body {
   align-items: center;
   padding-right: 1rem;
   margin: 0;
+  z-index: 999;
 }
 
 .navbar a {
@@ -69,7 +70,11 @@ body {
   .hamburger {
     display: block;
   }
-
+.btn{
+  max-width: 100px;
+  max-height: auto;
+  margin-right: 5%;
+}
   .navbar ul {
     display: none;
     position: absolute;

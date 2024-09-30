@@ -1,37 +1,41 @@
+body {
+    background-color: rgb(59, 123, 135);
+}
 .sec1 {
     display: flex;
-    flex-direction: row;
-    height: 85vh;
+    flex-direction: column; /* Change to column to stack elements */
     width: 100%;
-    overflow-x: hidden; /* Hide the scrollbar */
     position: relative;
-    z-index: 1; /* Set a lower z-index for images */
+    border: solid red 1.5px;
 }
 
 .image-container {
     display: flex;
-    width: max-content; /* Ensures the container can hold multiple sets of images */
-    animation: scroll-left 90s linear infinite; /* Slower and smoother infinite scroll */
-    will-change: transform; /* Hint for smoother performance */
+    width: 100%; /* Use full width of the parent */
+    overflow-x: auto; /* Show horizontal scrollbar when needed */
+    height: 63vh; /* Height for the image container */
+    scrollbar-width: thin; /* For Firefox, to make scrollbar thinner */
+
+}
+
+
+/* Scrollbar styling for WebKit browsers (Chrome, Safari) */
+.image-container::-webkit-scrollbar {
+    height: 10px; /* Height of the scrollbar */
+}
+
+.image-container::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Rounded edges for the scrollbar thumb */
+}
+
+.image-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
 }
 
 .image-container img {
-    height: 100%;
-    margin-right: 10px;
-    flex-shrink: 0;
-}
-
-@keyframes scroll-left {
-    0% {
-        transform: translate3d(0, 0, 0); /* Start at initial position */
-    }
-    100% {
-        transform: translate3d(-50%, 0, 0); /* Move left by half the container width */
-    }
-}
-
-/* Adjust your navbar styles as needed */
-.navbar {
-    position: relative; /* Ensure it’s positioned relative to parent */
-    z-index: 2; /* Set a higher z-index for navbar */
+    height: 100%; /* Keep image height consistent */
+    margin-right: 10px; /* Space between images */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    scroll-snap-align: center; /* Optional: Align images to center when scrolling */
 }
