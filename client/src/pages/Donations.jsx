@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Donations.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -23,30 +22,42 @@ ImageModal.propTypes = {
 };
 
 const DonationsList = () => {
-  const [donations, setDonations] = useState([]);
+  // Manually entered donations data
+  const [donations] = useState([
+    {
+      _id: 1,
+      name: 'వాసర్ల శ్రీనివాస్ రావు గారు',
+      amount: 5000,
+      image: 'https://i.imgur.com/Flc3a0x.jpeg',
+    },
+    {
+      _id: 2,
+      name: 'ఎమ్ నాగరాజు ప్రసాద్ గారు',
+      amount: 15116,
+      image: 'https://i.imgur.com/GDCLVOu.jpeg',
+    },
+    {
+      _id: 3,
+      name: 'మట్టపర్తి బాబీ గారు',
+      amount: 5116,
+      image: 'https://i.imgur.com/YMHxeOH.jpeg',
+    },
+    {
+      _id: 4,
+      name: 'వాసర్ల సూర్యనారాయణ గారు',
+      amount: 1116,
+      image: 'https://i.imgur.com/gcNtqVF.jpeg',
+    },
+  ]);
+
   const [visibleImages, setVisibleImages] = useState({});
   const [selectedImage, setSelectedImage] = useState(null); // State to track selected image for modal
-
-  useEffect(() => {
-    fetchDonations();
-  }, []);
-
-  const fetchDonations = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/donations');
-      // Sort donations by amount in descending order
-      const sortedDonations = response.data.sort((a, b) => b.amount - a.amount);
-      setDonations(sortedDonations);
-    } catch (error) {
-      console.error("Error fetching donations:", error);
-    }
-  };
 
   // Function to toggle the visibility of an image
   const toggleImageVisibility = (id) => {
     setVisibleImages((prevVisibleImages) => ({
       ...prevVisibleImages,
-      [id]: !prevVisibleImages[id] // Toggle visibility
+      [id]: !prevVisibleImages[id], // Toggle visibility
     }));
   };
 
@@ -129,3 +140,4 @@ const DonationsList = () => {
 };
 
 export default DonationsList;
+

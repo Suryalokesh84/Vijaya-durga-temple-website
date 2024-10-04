@@ -1,21 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
-import './Home.css'; // Ensure styles for both components are included
-import './Donations.css'; // Ensure styles for donations are included
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import './Home.css';
+import './Donations.css';
+import { FaEye } from 'react-icons/fa';
+import Gallery from './Gallery';
 
-// Modal component to show full-screen image
-const ImageModal = ({ src, alt, onClose }) => {
-  return (
-    <div className="modal" onClick={onClose}>
-      <div className="modal-content">
-        <img src={src} alt={alt} className="full-screen-image" />
-        <span className="modal-close" onClick={onClose}>&times;</span>
-      </div>
+const ImageModal = ({ src, alt, onClose }) => (
+  <div className="modal" onClick={onClose}>
+    <div className="modal-content">
+      <img src={src} alt={alt} className="full-screen-image" />
+      <span className="modal-close" onClick={onClose}>&times;</span>
     </div>
-  );
-};
+  </div>
+);
 
 ImageModal.propTypes = {
   src: PropTypes.string.isRequired,
@@ -25,76 +22,61 @@ ImageModal.propTypes = {
 
 const HomeAndDonations = () => {
   const scrollRef = useRef(null);
-  const [donations, setDonations] = useState([]);
-  const [visibleImages, setVisibleImages] = useState({});
   const [selectedImage, setSelectedImage] = useState(null);
 
-  useEffect(() => {
-    const scroll = () => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollLeft += 1;
-        if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
-          scrollRef.current.scrollLeft = 0;
-        }
-      }
-    };
-    const intervalId = setInterval(scroll, 10);
-    
-    // Fetch donations when component mounts
-    fetchDonations();
+  const [donations] = useState([
+    { _id: 1, name: 'ఎమ్ నాగరాజు ప్రసాద్ గారు (పెదపట్నం లంక)', amount: 15116, image: 'https://i.imgur.com/GDCLVOu.jpeg' },
+    { _id: 2, name: 'మట్టపర్తి బాబీ గారు (ఎంట్రికోన)', amount: 5116, image: 'https://i.imgur.com/YMHxeOH.jpeg' },
+    { _id: 3, name: 'వాసర్ల శ్రీనివాస్ రావు గారు (ఎంట్రికోన)', amount: 5000, image: 'https://i.imgur.com/Flc3a0x.jpeg' },
+    { _id: 4, name: 'గుత్తుల శ్రీనివాస్ గారు (ఎన్. కొత్తపల్లి)', amount: 3000, image: '' },
+    { _id: 5, name: 'వాసర్ల సూర్యనారాయణ గారు (ఎంట్రికోన)', amount: 1116, image: 'https://i.imgur.com/gcNtqVF.jpeg' },
+    { _id: 6, name: 'విత్తనాల సత్యనారాయణ గారు  (ఎన్. కొత్తపల్లి)', amount: 1116, image: 'https://i.imgur.com/Fmroj4j.jpeg' },
+  ]);
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
-  const fetchDonations = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/donations');
-      const sortedDonations = response.data.sort((a, b) => b.amount - a.amount);
-      setDonations(sortedDonations);
-    } catch (error) {
-      console.error("Error fetching donations:", error);
-    }
-  };
-
-  const toggleImageVisibility = (id) => {
-    setVisibleImages((prevVisibleImages) => ({
-      ...prevVisibleImages,
-      [id]: !prevVisibleImages[id],
-    }));
-  };
-
+  // Function to open the modal with the clicked image
   const openModal = (imageSrc) => {
     setSelectedImage(imageSrc);
   };
 
+  // Function to close the modal
   const closeModal = () => {
     setSelectedImage(null);
   };
 
-  const openImageInNewTab = (imageSrc) => {
-    window.open(imageSrc, '_blank');
-  };
+  // Automated smooth scrolling function
+  useEffect(() => {
+    const scrollSpeed = 1; // Amount of pixels to scroll
+    const scrollInterval = 20; // Time interval (in ms) between each scroll movement
+
+    const smoothScroll = () => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'auto' }); // Reset to the beginning without smooth behavior
+        } else {
+          scrollRef.current.scrollBy({ left: scrollSpeed, behavior: 'smooth' }); // Scroll by 1px with smooth behavior
+        }
+      }
+    };
+
+    const intervalId = setInterval(smoothScroll, scrollInterval); // Smooth scrolling at intervals
+
+    return () => clearInterval(intervalId); // Cleanup the interval on component unmount
+  }, []);
 
   return (
     <section className="sec1">
       {/* Image Scrolling Section */}
       <div className="image-container" ref={scrollRef}>
-        {/* First set of images */}
+        <img src="/images/image latest.jpg"/>
+        <img src="/images/WhatsApp Image 2024-10-02 at 22.37.07_1d18ffad.jpg"/>
         <img src="/images/temple1.jpg" alt="Temple Image 1" />
         <img src="/images/temple2.jpg" alt="Temple Image 2" />
         <img src="/images/temple3.jpg" alt="Temple Image 3" />
         <img src="/images/temple4.jpg" alt="Temple Image 4" />
         <img src="/images/temple5.jpg" alt="Temple Image 5" />
         <img src="/images/temple11.jpg" alt="Temple Image 6" />
-        {/* Duplicate the images for seamless scrolling */}
         <img src="/images/temple1.jpg" alt="Temple Image 1" />
-        <img src="/images/temple2.jpg" alt="Temple Image 2" />
-        <img src="/images/temple3.jpg" alt="Temple Image 3" />
-        <img src="/images/temple4.jpg" alt="Temple Image 4" />
-        <img src="/images/temple5.jpg" alt="Temple Image 5" />
-        <img src="/images/temple11.jpg" alt="Temple Image 6" />
       </div>
 
       {/* About Section */}
@@ -126,7 +108,7 @@ const HomeAndDonations = () => {
 
         <h2 className="section-title">దసరా వేడుకలు</h2>
         <p>
-        ప్రతి సంవత్సరం గ్రామస్తులు, భక్తుల వల్ల వచ్చిన విరాళాలతో నిర్మాణ అభివృద్ధి మరియు నవరాత్రి మహోత్సవాలు జరుగుచున్నవి. కాలక్రమేణా ప్రతి సంవత్సరం దినదినాభివృద్ధి చెందుతూ అన్నదానాలు, ఏకాహ భజన కార్యక్రమాలు, దీపాలంకరణలు, శమీ పూజలు, తీన్ మార్ డ్రమ్స్ మరియు DJ లైట్స్ & సౌండ్స్ వంటి కార్యక్రమాలతో  ఊరేగింపు వేడుకలు ఘనంగా విస్తరించాయి.
+        ప్రతి సంవత్సరం గ్రామస్తులు, భక్తుల వల్ల వచ్చిన విరాళాలతో నిర్మాణ అభివృద్ధి మరియు నవరాత్రి మహోత్సవాలు జరుగుచున్నవి. కాలక్రమేణా ప్రతి సంవత్సరం దినదినాభివృద్ధి చెందుతూ అన్నదానాలు, ఏకాహ భజన కార్యక్రమాలు, దీపాలంకరణలు, శమీ పూజలు, గరగ నృత్యాలు, తీన్ మార్ డ్రమ్స్ మరియు DJ లైట్స్ & సౌండ్స్ వంటి కార్యక్రమాలతో  ఊరేగింపు వేడుకలు ఘనంగా విస్తరించాయి.
         శ్రీ విజయ దుర్గ అమ్మ వారి మహత్యం యొక్క శక్తిపై గ్రామస్తుల విశ్వాసం మరియు వారి ఉదార విరాళాల కారణంగా, ఉత్సవాలు కొత్త ఎత్తులకు చేరుకుంటున్నాయి.
         </p>
 
@@ -139,6 +121,13 @@ const HomeAndDonations = () => {
         </p>
       </div>
     </div>
+
+       {/* Form to Add a New Donation */}
+       <div className="payments-container">
+        <h1 className="payment-header">CLICK ON THE BELOW LINK TO DONATE</h1>
+        <p className="payment-instruction">Please fill out your details and upload a screenshot of your donation.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZkU9qr1AeDRZz5lKvMBjKqlJ388xrghBrG9ei6qtJViFBvw/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" className="payment-link">Donate Now</a>
+      </div>
 
       {/* Donations Section */}
       <div className="donations-container">
@@ -159,56 +148,30 @@ const HomeAndDonations = () => {
                 <td>{donation.name}</td>
                 <td>{donation.amount}</td>
                 <td>
-                  {donation.image ? (
-                    <div>
-                      {visibleImages[donation._id] ? (
-                        <>
-                          <img
-                            src={donation.image}
-                            alt={donation.name}
-                            style={{ width: '50px', height: '50px', cursor: 'pointer' }}
-                            onClick={() => openModal(donation.image)}
-                          />
-                          <FaEyeSlash
-                            onClick={() => toggleImageVisibility(donation._id)}
-                            style={{ cursor: 'pointer', marginLeft: '10px' }}
-                            title="Hide Image"
-                          />
-                        </>
-                      ) : (
-                        <FaEye
-                          onClick={() => {
-                            toggleImageVisibility(donation._id);
-                            openImageInNewTab(donation.image);
-                          }}
-                          style={{ cursor: 'pointer' }}
-                          title="Show Image"
-                        />
-                      )}
-                    </div>
-                  ) : (
-                    'No Image'
+                  {donation.image && (
+                    <FaEye
+                      className="toggle-icon"
+                      onClick={() => openModal(donation.image)}
+                    />
                   )}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-
-        {/* Render the modal when an image is clicked */}
-        {selectedImage && (
-          <ImageModal src={selectedImage} alt="Donation Image" onClose={closeModal} />
-        )}
       </div>
 
-      {/* Payment Section */}
-      <div className="payments-container">
-        <h1 className="payment-header">CLICK ON THE BELOW LINK TO DONATE</h1>
-        <p className="payment-instruction">Please fill out your details and upload a screenshot of your donation.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZkU9qr1AeDRZz5lKvMBjKqlJ388xrghBrG9ei6qtJViFBvw/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" className="payment-link">Donate Now</a>
-      </div>
+      {/* Image Modal */}
+      {selectedImage && (
+        <ImageModal src={selectedImage} alt="Donation Image" onClose={closeModal} />
+      )}
+
+      {/* Gallery Section */}
+      <Gallery />
     </section>
   );
 };
+
+
 
 export default HomeAndDonations;
