@@ -4,6 +4,8 @@ import './Gallery.css';  // Ensure your CSS is applied
 
 const Gallery = () => {
   const [images] = useState([
+    { url: 'https://i.imgur.com/zEURAlx.jpeg', title: 'Image 9' },
+    { url: 'https://i.imgur.com/ALtY4KB.jpeg', title: 'Image 9' },
     { url: 'https://i.imgur.com/QnxDr7C.jpeg', title: 'Image 9' },
     { url: 'https://i.imgur.com/rmogqiP.jpeg', title: 'Image 9' },
     { url: 'https://i.imgur.com/TiZ9g8A.jpeg', title: 'Image 9' },

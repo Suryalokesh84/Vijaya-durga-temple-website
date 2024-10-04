@@ -45,14 +45,14 @@ const HomeAndDonations = () => {
 
   // Automated smooth scrolling function
   useEffect(() => {
-    const scrollSpeed = 1; // Amount of pixels to scroll
+    const scrollSpeed = 2; // Amount of pixels to scroll
     const scrollInterval = 20; // Time interval (in ms) between each scroll movement
 
     const smoothScroll = () => {
       if (scrollRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
         if (scrollLeft + clientWidth >= scrollWidth) {
-          scrollRef.current.scrollTo({ left: 0, behavior: 'auto' }); // Reset to the beginning without smooth behavior
+          scrollRef.current.scrollTo({ left: 20, behavior: 'auto' }); // Reset to the beginning without smooth behavior
         } else {
           scrollRef.current.scrollBy({ left: scrollSpeed, behavior: 'smooth' }); // Scroll by 1px with smooth behavior
         }
@@ -108,7 +108,7 @@ const HomeAndDonations = () => {
 
         <h2 className="section-title">దసరా వేడుకలు</h2>
         <p>
-        ప్రతి సంవత్సరం గ్రామస్తులు, భక్తుల వల్ల వచ్చిన విరాళాలతో నిర్మాణ అభివృద్ధి మరియు నవరాత్రి మహోత్సవాలు జరుగుచున్నవి. కాలక్రమేణా ప్రతి సంవత్సరం దినదినాభివృద్ధి చెందుతూ అన్నదానాలు, ఏకాహ భజన కార్యక్రమాలు, దీపాలంకరణలు, శమీ పూజలు, గరగ నృత్యాలు, తీన్ మార్ డ్రమ్స్ మరియు DJ లైట్స్ & సౌండ్స్ వంటి కార్యక్రమాలతో  ఊరేగింపు వేడుకలు ఘనంగా విస్తరించాయి.
+        ప్రతి సంవత్సరం గ్రామస్తులు, భక్తుల వల్ల వచ్చిన విరాళాలతో నిర్మాణ అభివృద్ధి మరియు నవరాత్రి మహోత్సవాలు జరుగుచున్నవి. కాలక్రమేణా ప్రతి సంవత్సరం దినదినాభివృద్ధి చెందుతూ పచ్చి పువ్వుల అలంకరణలు , అన్నదానాలు, ఏకాహ భజన కార్యక్రమాలు, దీపాలంకరణలు, శమీ పూజలు, గరగ నృత్యాలు, తీన్ మార్ డ్రమ్స్ మరియు DJ లైట్స్ & సౌండ్స్ వంటి కార్యక్రమాలతో  ఊరేగింపు వేడుకలు ఘనంగా విస్తరించాయి.
         శ్రీ విజయ దుర్గ అమ్మ వారి మహత్యం యొక్క శక్తిపై గ్రామస్తుల విశ్వాసం మరియు వారి ఉదార విరాళాల కారణంగా, ఉత్సవాలు కొత్త ఎత్తులకు చేరుకుంటున్నాయి.
         </p>
 

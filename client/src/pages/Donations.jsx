@@ -24,30 +24,13 @@ ImageModal.propTypes = {
 const DonationsList = () => {
   // Manually entered donations data
   const [donations] = useState([
-    {
-      _id: 1,
-      name: 'వాసర్ల శ్రీనివాస్ రావు గారు',
-      amount: 5000,
-      image: 'https://i.imgur.com/Flc3a0x.jpeg',
-    },
-    {
-      _id: 2,
-      name: 'ఎమ్ నాగరాజు ప్రసాద్ గారు',
-      amount: 15116,
-      image: 'https://i.imgur.com/GDCLVOu.jpeg',
-    },
-    {
-      _id: 3,
-      name: 'మట్టపర్తి బాబీ గారు',
-      amount: 5116,
-      image: 'https://i.imgur.com/YMHxeOH.jpeg',
-    },
-    {
-      _id: 4,
-      name: 'వాసర్ల సూర్యనారాయణ గారు',
-      amount: 1116,
-      image: 'https://i.imgur.com/gcNtqVF.jpeg',
-    },
+    { _id: 1, name: 'ఎమ్ నాగరాజు ప్రసాద్ గారు (పెదపట్నం లంక)', amount: 15116, image: 'https://i.imgur.com/GDCLVOu.jpeg' },
+    { _id: 2, name: 'మట్టపర్తి బాబీ గారు (ఎంట్రికోన)', amount: 5116, image: 'https://i.imgur.com/YMHxeOH.jpeg' },
+    { _id: 3, name: 'వాసర్ల శ్రీనివాస్ రావు గారు (ఎంట్రికోన)', amount: 5000, image: 'https://i.imgur.com/Flc3a0x.jpeg' },
+    { _id: 4, name: 'గుత్తుల శ్రీనివాస్ గారు (ఎన్. కొత్తపల్లి)', amount: 3000, image: '' },
+    { _id: 5, name: 'వాసర్ల సూర్యనారాయణ గారు (ఎంట్రికోన)', amount: 1116, image: 'https://i.imgur.com/gcNtqVF.jpeg' },
+    { _id: 6, name: 'విత్తనాల సత్యనారాయణ గారు  (ఎన్. కొత్తపల్లి)', amount: 1116, image: 'https://i.imgur.com/Fmroj4j.jpeg' },
+
   ]);
 
   const [visibleImages, setVisibleImages] = useState({});
