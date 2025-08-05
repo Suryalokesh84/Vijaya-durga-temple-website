@@ -1,5 +1,4 @@
 /* About.css */
-/* About.css */
 .about-container {
   padding: 30px; /* Padding inside the container */
   background: linear-gradient(to bottom right, #6a11cb, #2575fc); /* Gradient background */
@@ -17,6 +16,41 @@
     padding: 30px 20px; /* Increased padding on left and right for better visibility */
     margin: 20px 10px; /* Reduced margin for mobile devices */
     border-radius: 15px; /* Slightly smaller border radius for a cleaner look */
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-content p {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 20px 15px;
+    margin: 15px 5px;
+    border-radius: 12px;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+    padding: 10px;
+    line-height: 1.6;
   }
 }
 

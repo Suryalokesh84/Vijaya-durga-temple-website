@@ -1,41 +1,516 @@
+/* Global styles */
 body {
-    background-color: rgb(59, 123, 135);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
 }
+
+/* Main section container */
 .sec1 {
-    display: flex;
-    flex-direction: column; /* Change to column to stack elements */
-    width: 100%;
-    position: relative;
-    border: solid red 1.5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  animation: fadeInUp 1s ease-out;
 }
 
+/* Image scrolling container with enhanced styling */
 .image-container {
-    display: flex;
-    width: 100%; /* Use full width of the parent */
-    overflow-x: auto; /* Show horizontal scrollbar when needed */
-    height: 63vh; /* Height for the image container */
-    scrollbar-width: thin; /* For Firefox, to make scrollbar thinner */
-
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  height:85vh; /* Full viewport height */
+  scrollbar-width: thin;
+  background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+  position: relative;
+  animation: slideInDown 1.2s ease-out;
 }
 
-
-/* Scrollbar styling for WebKit browsers (Chrome, Safari) */
+/* Custom scrollbar styling */
 .image-container::-webkit-scrollbar {
-    height: 10px; /* Height of the scrollbar */
+  height: 12px;
+}
+
+.image-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
 .image-container::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar thumb */
-    border-radius: 5px; /* Rounded edges for the scrollbar thumb */
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .image-container::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker color on hover */
+  background: linear-gradient(45deg, #764ba2, #667eea);
 }
 
+/* Individual images in the scrolling container */
 .image-container img {
-    height: 100%; /* Keep image height consistent */
-    margin-right: 10px; /* Space between images */
-    flex-shrink: 0; /* Prevent images from shrinking */
-    scroll-snap-align: center; /* Optional: Align images to center when scrolling */
+  height: 100%;
+  margin-right: 15px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  object-fit: cover;
+  min-width: 300px;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* About container with enhanced styling */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 3.5rem;
+  color: #fff;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  animation: slideInDown 1.8s ease-out;
+}
+
+.about-content {
+  color: #fff;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #FFD700;
+  margin: 30px 0 15px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #FFD700;
+  padding-left: 15px;
+  animation: slideInLeft 1s ease-out;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Payments container styling */
+.payments-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 2s ease-out;
+}
+
+.payment-header {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: slideInDown 2.2s ease-out;
+}
+
+.payment-instruction {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 2.4s ease-out;
+}
+
+.donate-button {
+  padding: 20px 40px;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse 2s infinite;
+}
+
+.donate-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+}
+
+/* Donations container styling */
+.donations-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 2.5s ease-out;
+}
+
+.donations-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: slideInDown 2.7s ease-out;
+}
+
+/* Table styling */
+.donations-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 2.8s ease-out;
+}
+
+.donations-table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.donations-table td {
+  padding: 15px 20px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.donations-table tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-icon {
+  cursor: pointer;
+  color: #FFD700;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.toggle-icon:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  animation: zoomIn 0.4s ease-out;
+}
+
+.full-screen-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .about-container,
+  .payments-container,
+  .donations-container {
+    margin: 30px 20px;
+    padding: 30px 15px;
+  }
+  
+  .about-title {
+    font-size: 3rem;
+  }
+  
+  .payment-header {
+    font-size: 2.2rem;
+  }
+  
+  .donations-container h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    height: 90vh; /* Reduced by 10vh on mobile */
+  }
+  
+  .image-container img {
+    min-width: 250px;
+    margin-right: 10px;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-content {
+    font-size: 1rem;
+  }
+  
+  .payment-header {
+    font-size: 1.8rem;
+  }
+  
+  .payment-instruction {
+    font-size: 1rem;
+  }
+  
+  .donate-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+  
+  .donations-container h2 {
+    font-size: 1.8rem;
+  }
+  
+  .donations-table th,
+  .donations-table td {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  /* Improve table responsiveness */
+  .donations-table {
+    font-size: 0.85rem;
+  }
+  
+  .donations-table th {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .donations-table td {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-container {
+    height: 90vh; /* Reduced by 10vh on small mobile too */
+  }
+  
+  .image-container img {
+    min-width: 200px;
+    margin-right: 8px;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .payment-header {
+    font-size: 1.5rem;
+  }
+  
+  .donate-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  
+  .donations-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .donations-table {
+    font-size: 0.75rem;
+  }
+  
+  .donations-table th,
+  .donations-table td {
+    padding: 6px 4px;
+    font-size: 0.7rem;
+  }
+  
+  /* Stack table columns on very small screens */
+  .donations-table {
+    display: block;
+  }
+  
+  .donations-table thead {
+    display: none;
+  }
+  
+  .donations-table tbody {
+    display: block;
+  }
+  
+  .donations-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .donations-table td {
+    display: block;
+    text-align: left;
+    padding: 5px 0;
+    border: none;
+  }
+  
+  .donations-table td:before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    color: #FFD700;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Hidden class for loading states */
+.hidden {
+  display: none !important;
 }

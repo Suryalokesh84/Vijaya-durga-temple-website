@@ -1,0 +1,89 @@
+/* Global responsive styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Improve touch targets on mobile */
+button, 
+a, 
+input, 
+textarea {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Better focus states for accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Responsive containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  /* Hide elements on mobile if needed */
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Hide elements on desktop if needed */
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Prevent text zoom on iOS */
+@media screen and (max-width: 768px) {
+  input, 
+  select, 
+  textarea {
+    font-size: 16px !important;
+  }
+}

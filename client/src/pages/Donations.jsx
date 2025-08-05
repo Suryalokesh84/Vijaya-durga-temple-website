@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Donations.css';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 // Modal component to show full-screen image
 const ImageModal = ({ src, alt, onClose }) => {
@@ -24,25 +23,15 @@ ImageModal.propTypes = {
 const DonationsList = () => {
   // Manually entered donations data
   const [donations] = useState([
-    { _id: 1, name: 'ఎమ్ నాగరాజు ప్రసాద్ గారు (పెదపట్నం లంక)', amount: 15116, image: 'https://i.imgur.com/GDCLVOu.jpeg' },
-    { _id: 2, name: 'మట్టపర్తి బాబీ గారు (ఎంట్రికోన)', amount: 5116, image: 'https://i.imgur.com/YMHxeOH.jpeg' },
-    { _id: 3, name: 'వాసర్ల శ్రీనివాస్ రావు గారు (ఎంట్రికోన)', amount: 5000, image: 'https://i.imgur.com/Flc3a0x.jpeg' },
+    { _id: 1, name: 'ఎమ్ నాగరాజు ప్రసాద్ గారు (పెదపట్నం లంక)', amount: 15116, image: '/donations pics/1.jpg' },
+    { _id: 2, name: 'మట్టపర్తి బాబీ గారు (ఎంట్రికోన)', amount: 5116, image: '/donations pics/2.jpg' },
+    { _id: 3, name: 'వాసర్ల శ్రీనివాస్ రావు గారు (ఎంట్రికోన)', amount: 5000, image: '/donations pics/3.jpg' },
     { _id: 4, name: 'గుత్తుల శ్రీనివాస్ గారు (ఎన్. కొత్తపల్లి)', amount: 3000, image: '' },
-    { _id: 5, name: 'వాసర్ల సూర్యనారాయణ గారు (ఎంట్రికోన)', amount: 1116, image: 'https://i.imgur.com/gcNtqVF.jpeg' },
-    { _id: 6, name: 'విత్తనాల సత్యనారాయణ గారు  (ఎన్. కొత్తపల్లి)', amount: 1116, image: 'https://i.imgur.com/Fmroj4j.jpeg' },
-
+    { _id: 5, name: 'వాసర్ల సూర్యనారాయణ గారు (ఎంట్రికోన)', amount: 1116, image: '/donations pics/5.jpg' },
+    { _id: 6, name: 'విత్తనాల సత్యనారాయణ గారు  (ఎన్. కొత్తపల్లి)', amount: 1116, image: '/donations pics/6.jpg' },
   ]);
 
-  const [visibleImages, setVisibleImages] = useState({});
   const [selectedImage, setSelectedImage] = useState(null); // State to track selected image for modal
-
-  // Function to toggle the visibility of an image
-  const toggleImageVisibility = (id) => {
-    setVisibleImages((prevVisibleImages) => ({
-      ...prevVisibleImages,
-      [id]: !prevVisibleImages[id], // Toggle visibility
-    }));
-  };
 
   // Function to open the modal with the clicked image
   const openModal = (imageSrc) => {
@@ -52,11 +41,6 @@ const DonationsList = () => {
   // Function to close the modal
   const closeModal = () => {
     setSelectedImage(null);
-  };
-
-  // Function to open image in new tab
-  const openImageInNewTab = (imageSrc) => {
-    window.open(imageSrc, '_blank');
   };
 
   return (
@@ -79,32 +63,14 @@ const DonationsList = () => {
               <td>{donation.amount}</td>
               <td>
                 {donation.image ? (
-                  <div>
-                    {visibleImages[donation._id] ? (
-                      <>
-                        <img
-                          src={donation.image}
-                          alt={donation.name}
-                          style={{ width: '50px', height: '50px', cursor: 'pointer' }}
-                          onClick={() => openModal(donation.image)} // Open modal when clicked
-                        />
-                        <FaEyeSlash
-                          onClick={() => toggleImageVisibility(donation._id)}
-                          style={{ cursor: 'pointer', marginLeft: '10px' }}
-                          title="Hide Image"
-                        />
-                      </>
-                    ) : (
-                      <FaEye
-                        onClick={() => {
-                          toggleImageVisibility(donation._id);
-                          openImageInNewTab(donation.image); // Open image in new tab when eye is clicked
-                        }}
-                        style={{ cursor: 'pointer' }}
-                        title="Show Image"
-                      />
-                    )}
-                  </div>
+                  <img
+                    src={donation.image}
+                    alt={donation.name}
+                    className="donation-thumbnail"
+                    onClick={() => openModal(donation.image)}
+                    style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '6px', cursor: 'pointer', border: '1px solid #ccc', background: '#fff' }}
+                    title="Click to view larger"
+                  />
                 ) : (
                   'No Image'
                 )}

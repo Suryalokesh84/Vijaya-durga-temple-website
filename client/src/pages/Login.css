@@ -56,6 +56,43 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .login-container {
-        padding: 15px; /* Adjust padding for smaller screens */
+        padding: 15px;
+        margin: 20px 10px;
+        max-width: 100%;
+    }
+    
+    .login-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    .login-container input {
+        font-size: 16px; /* Prevent zoom on iOS */
+        padding: 12px;
+    }
+    
+    .login-container button {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px 15px;
+        margin: 15px 5px;
+    }
+    
+    .login-container h2 {
+        font-size: 1.6rem;
+    }
+    
+    .login-container input {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .login-container button {
+        padding: 15px;
+        font-size: 1.2rem;
     }
 }

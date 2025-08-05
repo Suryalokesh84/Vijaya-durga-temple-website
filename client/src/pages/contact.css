@@ -77,12 +77,44 @@ textarea {
   background-color: #a10000; /* Darker shade on hover */
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .contact-container {
-      padding: 20px; /* Adjust padding for smaller screens */
+    padding: 20px;
+    margin: 20px 10px;
+    max-width: 100%;
   }
 
   .contact-title {
-      font-size: 2rem; /* Adjust title size */
+    font-size: 2rem;
+  }
+  
+  .success-message {
+    font-size: 1.5rem;
+  }
+  
+  input,
+  textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 15px;
+    margin: 15px 5px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+  
+  .success-message {
+    font-size: 1.3rem;
+  }
+  
+  .submit-button {
+    padding: 12px;
+    font-size: 1.1rem;
   }
 }

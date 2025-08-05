@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Home.css';
 import './Donations.css';
-import { FaEye } from 'react-icons/fa';
 import Gallery from './Gallery';
 
 const ImageModal = ({ src, alt, onClose }) => (
@@ -82,7 +81,7 @@ const HomeAndDonations = () => {
       </div>
 
       {/* About Section */}
-      <div className="about-container">
+      <div id="about-section" className="about-container">
         <h1 className="about-title">దుర్గామాత కథ</h1>
         <div className="about-content">
           <h2 className="section-title">దివ్య దృష్టి</h2>
@@ -122,14 +121,15 @@ const HomeAndDonations = () => {
       </div>
 
       {/* Form to Add a New Donation */}
-      <div className="payments-container">
+      <div id="payments-section" className="payments-container">
         <h1 className="payment-header">CLICK ON THE BELOW LINK TO DONATE</h1>
         <p className="payment-instruction">Please fill out your details and upload a screenshot of your donation to the temple below.</p>
-        <button className="donate-button">DONATE</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZkU9qr1AeDRZz5lKvMBjKqlJ388xrghBrG9ei6qtJViFBvw/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer" className="payment-link">Donate Now</a>
+        
       </div>
 
       {/* Donations Section */}
-      <div className="donations-container">
+      <div id="donations-section" className="donations-container">
         <h2>Donations</h2>
         <table className="donations-table">
           <thead>
@@ -143,15 +143,32 @@ const HomeAndDonations = () => {
           <tbody>
             {donations.map((donation, index) => (
               <tr key={donation._id}>
-                <td>{index + 1}</td>
-                <td>{donation.name}</td>
-                <td>{donation.amount}</td>
-                <td>
-                  {donation.image && (
-                    <FaEye
-                      className="toggle-icon"
+                <td data-label="S.No">{index + 1}</td>
+                <td data-label="Name">{donation.name}</td>
+                <td data-label="Amount">{donation.amount}</td>
+                <td data-label="Image">
+                  {donation.image ? (
+                    <img
+                      src={donation.image}
+                      alt={donation.name}
+                      className="donation-thumbnail"
                       onClick={() => openModal(donation.image)}
+                      style={{ 
+                        width: '50px', 
+                        height: '50px', 
+                        objectFit: 'cover', 
+                        borderRadius: '6px', 
+                        cursor: 'pointer', 
+                        border: '1px solid #ccc', 
+                        background: '#fff',
+                        transition: 'transform 0.2s ease'
+                      }}
+                      title="Click to view larger"
+                      onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
+                      onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                     />
+                  ) : (
+                    'No Image'
                   )}
                 </td>
               </tr>
@@ -166,7 +183,9 @@ const HomeAndDonations = () => {
       )}
 
       {/* Gallery Section */}
-      <Gallery />
+      <div id="gallery-section">
+        <Gallery />
+      </div>
     </section>
   );
 };
