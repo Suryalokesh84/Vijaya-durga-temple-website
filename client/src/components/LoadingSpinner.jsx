@@ -5,14 +5,14 @@ const LoadingSpinner = () => {
   return (
     <div className="loading-overlay">
       <div className="loading-container">
-        {/* Main Circle with Om in Center and Diyas Around */}
+        {/* Main Circle with Om in Center and Deepaks Around */}
         <div className="main-circle">
-          {/* Rotating Diyas */}
-          <div className="diyas-container">
+          {/* Rotating Deepaks */}
+          <div className="deepaks-container">
             {[...Array(8)].map((_, i) => (
-              <div key={i} className={`diya diya-${i + 1}`}>
-                <div className="diya-flame">🕯️</div>
-                <div className="diya-glow"></div>
+              <div key={i} className={`deepak deepak-${i + 1}`}>
+                <div className="deepak-flame">🪔</div>
+                <div className="deepak-glow"></div>
               </div>
             ))}
           </div>
@@ -30,7 +30,7 @@ const LoadingSpinner = () => {
           <p>Loading Divine Blessings...</p>
         </div>
         
-        {/* Simple Progress Bar */}
+        {/* Slow Progress Bar */}
         <div className="progress-container">
           <div className="progress-bar"></div>
         </div>

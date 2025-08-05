@@ -29,51 +29,77 @@
   margin-bottom: 3rem;
 }
 
-/* Rotating Diyas */
-.diyas-container {
+/* Rotating Deepaks */
+.deepaks-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  animation: diyasRotate 8s linear infinite;
+  animation: deepaksRotate 8s linear infinite;
 }
 
-.diya {
+.deepak {
   position: absolute;
   width: 60px;
   height: 60px;
   transform-origin: 200px 200px;
 }
 
-.diya-flame {
-  font-size: 2rem;
+.deepak-flame {
+  font-size: 2.5rem;
   animation: flameFlicker 1s ease-in-out infinite;
   position: relative;
   z-index: 5;
+  /* Keep deepak upright while rotating */
+  transform: rotate(calc(-1 * var(--rotation-angle, 0deg)));
 }
 
-.diya-glow {
+.deepak-glow {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
   border-radius: 50%;
-  animation: diyaGlow 2s ease-in-out infinite;
+  animation: deepakGlow 2s ease-in-out infinite;
 }
 
-/* Position diyas in a circle */
-.diya-1 { transform: rotate(0deg) translateX(200px); }
-.diya-2 { transform: rotate(45deg) translateX(200px); }
-.diya-3 { transform: rotate(90deg) translateX(200px); }
-.diya-4 { transform: rotate(135deg) translateX(200px); }
-.diya-5 { transform: rotate(180deg) translateX(200px); }
-.diya-6 { transform: rotate(225deg) translateX(200px); }
-.diya-7 { transform: rotate(270deg) translateX(200px); }
-.diya-8 { transform: rotate(315deg) translateX(200px); }
+/* Position deepaks in a circle with counter-rotation to keep them upright */
+.deepak-1 { 
+  transform: rotate(0deg) translateX(200px); 
+  --rotation-angle: 0deg;
+}
+.deepak-2 { 
+  transform: rotate(45deg) translateX(200px); 
+  --rotation-angle: 45deg;
+}
+.deepak-3 { 
+  transform: rotate(90deg) translateX(200px); 
+  --rotation-angle: 90deg;
+}
+.deepak-4 { 
+  transform: rotate(135deg) translateX(200px); 
+  --rotation-angle: 135deg;
+}
+.deepak-5 { 
+  transform: rotate(180deg) translateX(200px); 
+  --rotation-angle: 180deg;
+}
+.deepak-6 { 
+  transform: rotate(225deg) translateX(200px); 
+  --rotation-angle: 225deg;
+}
+.deepak-7 { 
+  transform: rotate(270deg) translateX(200px); 
+  --rotation-angle: 270deg;
+}
+.deepak-8 { 
+  transform: rotate(315deg) translateX(200px); 
+  --rotation-angle: 315deg;
+}
 
 /* Central Om Symbol */
 .om-center {
@@ -104,7 +130,7 @@
   animation: glowPulse 3s ease-in-out infinite;
 }
 
-@keyframes diyasRotate {
+@keyframes deepaksRotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
@@ -142,7 +168,7 @@
   }
 }
 
-@keyframes diyaGlow {
+@keyframes deepakGlow {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0.3;
@@ -192,7 +218,7 @@
   }
 }
 
-/* Progress Bar */
+/* Slow Progress Bar */
 .progress-container {
   width: 300px;
   height: 6px;
@@ -209,6 +235,7 @@
   border-radius: 10px;
   animation: progressFill 4s ease-in-out infinite;
   position: relative;
+  width: 0%;
 }
 
 .progress-bar::after {
@@ -223,9 +250,21 @@
 }
 
 @keyframes progressFill {
-  0% { width: 0%; }
-  50% { width: 70%; }
-  100% { width: 100%; }
+  0% { 
+    width: 0%; 
+  }
+  25% { 
+    width: 25%; 
+  }
+  50% { 
+    width: 50%; 
+  }
+  75% { 
+    width: 75%; 
+  }
+  100% { 
+    width: 100%; 
+  }
 }
 
 @keyframes progressShine {
@@ -237,15 +276,15 @@
 @media (max-width: 768px) {
   .main-circle { width: 300px; height: 300px; }
   .om-symbol { font-size: 4rem; }
-  .diya { transform-origin: 150px 150px; }
-  .diya-1 { transform: rotate(0deg) translateX(150px); }
-  .diya-2 { transform: rotate(45deg) translateX(150px); }
-  .diya-3 { transform: rotate(90deg) translateX(150px); }
-  .diya-4 { transform: rotate(135deg) translateX(150px); }
-  .diya-5 { transform: rotate(180deg) translateX(150px); }
-  .diya-6 { transform: rotate(225deg) translateX(150px); }
-  .diya-7 { transform: rotate(270deg) translateX(150px); }
-  .diya-8 { transform: rotate(315deg) translateX(150px); }
+  .deepak { transform-origin: 150px 150px; }
+  .deepak-1 { transform: rotate(0deg) translateX(150px); --rotation-angle: 0deg; }
+  .deepak-2 { transform: rotate(45deg) translateX(150px); --rotation-angle: 45deg; }
+  .deepak-3 { transform: rotate(90deg) translateX(150px); --rotation-angle: 90deg; }
+  .deepak-4 { transform: rotate(135deg) translateX(150px); --rotation-angle: 135deg; }
+  .deepak-5 { transform: rotate(180deg) translateX(150px); --rotation-angle: 180deg; }
+  .deepak-6 { transform: rotate(225deg) translateX(150px); --rotation-angle: 225deg; }
+  .deepak-7 { transform: rotate(270deg) translateX(150px); --rotation-angle: 270deg; }
+  .deepak-8 { transform: rotate(315deg) translateX(150px); --rotation-angle: 315deg; }
   .loading-text h3 { font-size: 1.3rem; }
   .progress-container { width: 250px; }
 }
@@ -253,15 +292,15 @@
 @media (max-width: 480px) {
   .main-circle { width: 250px; height: 250px; }
   .om-symbol { font-size: 3rem; }
-  .diya { transform-origin: 125px 125px; }
-  .diya-1 { transform: rotate(0deg) translateX(125px); }
-  .diya-2 { transform: rotate(45deg) translateX(125px); }
-  .diya-3 { transform: rotate(90deg) translateX(125px); }
-  .diya-4 { transform: rotate(135deg) translateX(125px); }
-  .diya-5 { transform: rotate(180deg) translateX(125px); }
-  .diya-6 { transform: rotate(225deg) translateX(125px); }
-  .diya-7 { transform: rotate(270deg) translateX(125px); }
-  .diya-8 { transform: rotate(315deg) translateX(125px); }
+  .deepak { transform-origin: 125px 125px; }
+  .deepak-1 { transform: rotate(0deg) translateX(125px); --rotation-angle: 0deg; }
+  .deepak-2 { transform: rotate(45deg) translateX(125px); --rotation-angle: 45deg; }
+  .deepak-3 { transform: rotate(90deg) translateX(125px); --rotation-angle: 90deg; }
+  .deepak-4 { transform: rotate(135deg) translateX(125px); --rotation-angle: 135deg; }
+  .deepak-5 { transform: rotate(180deg) translateX(125px); --rotation-angle: 180deg; }
+  .deepak-6 { transform: rotate(225deg) translateX(125px); --rotation-angle: 225deg; }
+  .deepak-7 { transform: rotate(270deg) translateX(125px); --rotation-angle: 270deg; }
+  .deepak-8 { transform: rotate(315deg) translateX(125px); --rotation-angle: 315deg; }
   .loading-text h3 { font-size: 1.1rem; }
   .progress-container { width: 200px; }
 } 

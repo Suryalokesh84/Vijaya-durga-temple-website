@@ -78,8 +78,11 @@
   transition: all 0.3s ease;
 }
 
-.nav-logo:hover {
-  transform: scale(1.02);
+/* Remove hover effect on desktop, keep on mobile */
+@media (max-width: 768px) {
+  .nav-logo:hover {
+    transform: scale(1.02);
+  }
 }
 
 .logo-icon {
