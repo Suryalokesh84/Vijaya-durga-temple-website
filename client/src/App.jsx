@@ -20,25 +20,16 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time for images and content
-    const loadImages = () => {
-      const imageUrls = [
+    // Only preload essential home page images for faster loading
+    const loadEssentialImages = () => {
+      const essentialImageUrls = [
         '/images/image latest.jpg',
-        '/images/WhatsApp Image 2024-10-02 at 22.37.07_1d18ffad.jpg',
         '/images/temple1.jpg',
         '/images/temple2.jpg',
-        '/images/temple3.jpg',
-        '/images/temple4.jpg',
-        '/images/temple5.jpg',
-        '/images/temple11.jpg',
-        '/donations pics/1.jpg',
-        '/donations pics/2.jpg',
-        '/donations pics/3.jpg',
-        '/donations pics/5.jpg',
-        '/donations pics/6.jpg'
+        '/images/temple3.jpg'
       ];
 
-      const imagePromises = imageUrls.map(url => {
+      const imagePromises = essentialImageUrls.map(url => {
         return new Promise((resolve, reject) => {
           const img = new Image();
           img.onload = () => resolve(url);
@@ -47,15 +38,21 @@ const App = () => {
         });
       });
 
-      // Wait for all images to load or timeout after 5 seconds
+      // Wait for essential images with a timeout to prevent long waits
       Promise.allSettled(imagePromises).then(() => {
+        // Add a small delay for smooth transition (0.5 seconds)
         setTimeout(() => {
           setIsLoading(false);
-        }, 4000); // Minimum 4 seconds of loading animation
+        }, 500);
       });
+
+      // Fallback timeout - if images take too long, show website anyway
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000); // Maximum 2 seconds wait
     };
 
-    loadImages();
+    loadEssentialImages();
   }, []);
 
   if (isLoading) {
