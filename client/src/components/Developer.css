@@ -1,0 +1,302 @@
+/* Developer Modal Styles */
+.developer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.developer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.developer-modal {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.8) translateY(50px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  overflow-y: auto; /* ✅ Already present */
+  max-height: 85vh;
+}
+
+.developer-overlay.active .developer-modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.developer-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 24px;
+  color: #FFD700;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 10001;
+}
+
+.developer-close-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.developer-close-btn:active {
+  transform: scale(0.95);
+}
+
+.developer-content {
+  color: white;
+  text-align: center;
+}
+
+.developer-header {
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.developer-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.developer-header p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.developer-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.developer-image-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+  width: 370px;
+  height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.developer-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #FFD700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.developer-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #FFD700;
+}
+
+.developer-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.developer-skills {
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.developer-skills h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #FFD700;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.skill-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.skill-item:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+}
+
+.skill-item span:last-child {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.developer-footer {
+  animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.developer-footer p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.developer-footer p:first-child {
+  color: #FFD700;
+  font-weight: 500;
+}
+
+
+/* ✅ FULL IMAGE MODAL STYLES */
+.full-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20000;
+  cursor: zoom-out;
+}
+
+.full-image {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 20px;
+  border: 4px solid #FFD700;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .developer-modal {
+    padding: 1.5rem;
+    margin: 1rem;
+    max-width: 95vw;
+  }
+  
+  .developer-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .developer-image-container {
+    width: 326px;
+    height: 326px;
+  }
+  
+  .developer-info h3 {
+    font-size: 1.3rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .skill-item {
+    padding: 0.8rem;
+  }
+  
+  .skill-icon {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .developer-modal {
+    padding: 1rem;
+  }
+  
+  .developer-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .developer-image-container {
+    width: 290px;
+    height: 290px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+} 
