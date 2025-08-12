@@ -92,6 +92,21 @@
   transition: transform 0.3s ease;
 }
 
+/* Zoom out images 5, 6, 13, 14 so more of the image is visible */
+.gallery-item:nth-child(5) img,
+.gallery-item:nth-child(6) img,
+.gallery-item:nth-child(13) img,
+.gallery-item:nth-child(14) img {
+  transform: scale(1);
+  object-position: 0 -30px;
+}
+
+/* Show the top of images 5, 6, 13, 14, and the last two images in desktop mode */
+
+.gallery-item:nth-last-child(-n+2) img {
+  object-position: top ;
+}
+
 .gallery-item:hover img {
   transform: scale(1.05);
 }
