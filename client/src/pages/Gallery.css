@@ -367,6 +367,11 @@
     min-width: 80px;
     width: 100%;
   }
+
+  /* Make the last two gallery images show the top (faces visible) */
+  .gallery-item:nth-last-child(-n+2) img {
+    object-position: top !important;
+  }
 }
 
 /* Animation for gallery items */
